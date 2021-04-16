@@ -18,6 +18,7 @@ public class TestTask {
        String descripcion;
        Boolean estado;
        int tar;
+       int year=0;
        int mes;
        int dia;
        String opc;
@@ -57,13 +58,22 @@ public class TestTask {
                   prioridad=sc.nextInt();
                   }while(prioridad<=1 && prioridad >=5);
                   
-                
-                  System.out.println(" Ingrese fecha de vencimiento");
+                try{
+                  System.out.println(" Ingrese fecha de vencimiento  aaaa/mm/dd");
                   String año=sc.next();
                   String Date[]=año.split("/");
-                  int year= Integer.valueOf(Date[0]);
+                  year=Integer.valueOf(Date[0]);
                   mes=Integer.valueOf(Date[1]);
                   dia=Integer.valueOf(Date[2]);
+                
+                }catch(Exception e){
+                    
+                    System.out.println(" No ingreso fecha correctamente");
+                    
+                    year=0;
+                    mes=1;
+                    dia=1;    
+                }
                   LocalDate fecha=LocalDate.of( year,mes, dia);
                   Task Tarea= new Task(descripcion,estado,num,prioridad,fecha);
                  
