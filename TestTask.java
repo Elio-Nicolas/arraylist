@@ -11,7 +11,7 @@ public class TestTask {
         
         Scanner sc= new Scanner(System.in);
 
-        ArrayList<Task> ListaTarea = new ArrayList<Task>();
+        ArrayList<Task> ListaTarea = new ArrayList<Task>(); // definicion de lista
       
        int opcion;
        int prioridad,i=0,marca=0,elimina;
@@ -19,11 +19,12 @@ public class TestTask {
        Boolean estado;
        int tar;
        int year=0;
-       int mes;
-       int dia;
+       int mes=1;
+       int dia=1;
        String opc;
        int num;
-       Iterator<Task> Ite = ListaTarea.iterator();
+       Iterator<Task> Ite = ListaTarea.iterator();// definicion de iterador para 
+                                                  // trabajar con la lista
         
        do{
            System.out.println("        MENU       ");
@@ -58,6 +59,8 @@ public class TestTask {
                   prioridad=sc.nextInt();
                   }while(prioridad<=1 && prioridad >=5);
                   
+                  // utilizacion de bloque try para excepciones
+                  
                 try{
                   System.out.println(" Ingrese fecha de vencimiento  aaaa/mm/dd");
                   String año=sc.next();
@@ -66,13 +69,13 @@ public class TestTask {
                   mes=Integer.valueOf(Date[1]);
                   dia=Integer.valueOf(Date[2]);
                 
-                }catch(Exception e){
+                }catch(RuntimeException e){  // utilizacion de bloque catch para agarrar el error y continuar
                     
                     System.out.println(" No ingreso fecha correctamente");
-                    
-                    year=0;
-                    mes=1;
-                    dia=1;    
+                    System.out.println(" error : "+e);
+                  //  year=0;
+                  //  mes=1;     //asigno valores para poder pasar los argumentos al constructor
+                  //  dia=1;     // puedo elegir los que crea conveniente por defecto
                 }
                   LocalDate fecha=LocalDate.of( year,mes, dia);
                   Task Tarea= new Task(descripcion,estado,num,prioridad,fecha);
