@@ -15,7 +15,7 @@ public class TestTask {
        int opcion,tar,num,elimina;
        int year=0;
        int mes=1;
-       int dia=1;;
+       int dia=1;
        int prioridad,marca=0;
        String descripcion,opc;
        Boolean estado;
@@ -87,7 +87,7 @@ public class TestTask {
                break;
                 
                case 2:
-                   i=0;
+                   
                    if(!ListaTarea.isEmpty()){   // compruebo si la lista esta vacia con el metodo empty
                    
                     Ite = ListaTarea.iterator();  // asigno una variable de tipo iterator
