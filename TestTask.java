@@ -11,18 +11,16 @@ public class TestTask {
         
         Scanner sc= new Scanner(System.in);
 
-        ArrayList<Task> ListaTarea = new ArrayList<Task>(); // definicion de lista
-      
-       int opcion;
-       int prioridad,i=0,marca=0,elimina;
-       String descripcion;
-       Boolean estado;
-       int tar;
+       ArrayList<Task> ListaTarea = new ArrayList<Task>(); // definicion de lista
+       int opcion,tar,num,elimina;
        int year=0;
        int mes=1;
-       int dia=1;
-       String opc;
-       int num;
+       int dia=1;;
+       int prioridad,marca=0;
+       String descripcion,opc;
+       Boolean estado;
+       
+       
        Iterator<Task> Ite = ListaTarea.iterator();// definicion de iterador para 
                                                   // trabajar con la lista
         
@@ -90,13 +88,13 @@ public class TestTask {
                 
                case 2:
                    i=0;
-                   if(!ListaTarea.isEmpty()){
+                   if(!ListaTarea.isEmpty()){   // compruebo si la lista esta vacia con el metodo empty
                    
-                    Ite = ListaTarea.iterator();
+                    Ite = ListaTarea.iterator();  // asigno una variable de tipo iterator
                        
-                       while(Ite.hasNext()){
+                       while(Ite.hasNext()){    // while para recorrer la lista
                            
-	               Task elemento = Ite.next();
+	               Task elemento = Ite.next(); // asigno el objeto al que apunta el iterator a un objeto de tipo Task
                        
                        System.out.println("tarea : "+elemento.getnumero_tarea());
 	               System.out.println("Descripcion :"+elemento.getdescripcion());
@@ -141,7 +139,7 @@ public class TestTask {
                             elemento.setprioridad(prioridad);
                             marca=1;
                         }  
-                       // i++;
+                      
                     }
                          
                      if(marca == 1)System.out.println(" Prioridad modificada");
